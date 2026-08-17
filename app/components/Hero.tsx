@@ -78,7 +78,7 @@ export default function Hero({ onIosClick }: HeroProps) {
           </div>
 
           {/* Right Column: App Graphic & Interactive Preview */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
+          <div className="lg:col-span-5 relative hidden items-center justify-center">
             {/* Glow backing */}
             <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-cyan-500/20 rounded-3xl blur-2xl transform rotate-6 scale-95" />
 
