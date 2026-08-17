@@ -1,59 +1,92 @@
+"use client";
+
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import FeatureShowcase from "./components/FeatureShowcase";
+import Pricing from "./components/Pricing";
+import Calculator from "./components/Calculator";
+import FAQ from "./components/FAQ";
+import IosModal from "./components/IosModal";
+import Link from "next/link";
+
 export default function Home() {
+  const [isIosModalOpen, setIsIosModalOpen] = useState(false);
+
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-6 py-16">
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top,_#ffe0b8,_#f8f5ef_48%,_#e6eef6)]" />
-      <div className="pointer-events-none absolute -top-24 -left-20 -z-10 h-72 w-72 rounded-full bg-[#f5b77d]/45 blur-3xl animate-pulse" />
-      <div className="pointer-events-none absolute -right-16 bottom-10 -z-10 h-80 w-80 rounded-full bg-[#6da8d6]/35 blur-3xl animate-pulse [animation-delay:700ms]" />
+    <div className="min-h-screen flex flex-col bg-[#0b0f17] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300">
+      {/* Top Navbar */}
+      <Navbar onIosClick={() => setIsIosModalOpen(true)} />
 
-      <main className="w-full max-w-3xl rounded-[2rem] border border-white/60 bg-white/70 p-7 shadow-[0_20px_80px_-40px_rgba(43,55,73,0.55)] backdrop-blur sm:p-12">
-        <p className="mb-6 inline-flex rounded-full border border-[#2f5f86]/25 bg-[#2f5f86]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#2f5f86]">
-          Coming Soon
-        </p>
+      {/* Main Content */}
+      <main className="flex-grow">
+        <Hero onIosClick={() => setIsIosModalOpen(true)} />
+        <FeatureShowcase />
+        <Pricing onIosClick={() => setIsIosModalOpen(true)} />
+        <FAQ />
 
-        <h1 className="max-w-2xl text-4xl font-semibold leading-[1.08] tracking-tight text-[#122438] sm:text-6xl">
-          A smarter home for your auto logs is almost here.
-        </h1>
-
-        <p className="mt-6 max-w-xl text-base leading-7 text-[#2a4460] sm:text-lg">
-          We are building a cleaner way to capture trips, expenses, and service history in one timeline. Launching soon with early access for the first wave.
-        </p>
-
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a
-            href="mailto:hello@example.com?subject=Early%20access%20request"
-            className="inline-flex h-12 items-center justify-center rounded-full bg-[#153a5a] px-6 text-sm font-semibold tracking-wide text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#0f2e49]"
-          >
-            Request Early Access
-          </a>
-          <a
-            href="mailto:hello@example.com?subject=Partnership%20inquiry"
-            className="inline-flex h-12 items-center justify-center rounded-full border border-[#153a5a]/30 bg-white/60 px-6 text-sm font-semibold tracking-wide text-[#153a5a] transition-colors duration-200 hover:bg-white"
-          >
-            Partner With Us
-          </a>
-        </div>
-
-        <div className="mt-10 grid grid-cols-3 gap-3 text-center">
-          <div className="rounded-2xl border border-[#16395a]/15 bg-white/65 px-3 py-4">
-            <p className="text-2xl font-semibold text-[#112a42]">24/7</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#46698d]">
-              Cloud Sync
+        {/* Call To Action Footer Banner */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-sky-950/30 via-slate-900 to-[#0b0f17]" />
+          <div className="mx-auto max-w-5xl px-4 text-center space-y-6 sm:px-6 lg:px-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1 text-xs font-semibold text-sky-400">
+              ⚡ Available Now on Android • iOS Launching Soon
+            </div>
+            <h2 className="text-3xl font-extrabold text-white sm:text-5xl">
+              Start Tracking Your Trips & Gas Spend Today
+            </h2>
+            <p className="max-w-2xl mx-auto text-base text-slate-300 sm:text-lg">
+              Join thousands of smart drivers who never manually log mileage or lose a gas receipt again.
             </p>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-sky-400 via-sky-500 to-cyan-500 px-8 py-4 text-base font-bold text-slate-950 shadow-xl shadow-sky-500/25 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
+              >
+                Download on Google Play Store
+              </a>
+
+              <button
+                onClick={() => setIsIosModalOpen(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all w-full sm:w-auto"
+              >
+                iOS App Store (Coming Soon)
+              </button>
+            </div>
           </div>
-          <div className="rounded-2xl border border-[#16395a]/15 bg-white/65 px-3 py-4">
-            <p className="text-2xl font-semibold text-[#112a42]">1 App</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#46698d]">
-              Total Records
-            </p>
-          </div>
-          <div className="rounded-2xl border border-[#16395a]/15 bg-white/65 px-3 py-4">
-            <p className="text-2xl font-semibold text-[#112a42]">0 Chaos</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#46698d]">
-              Clean Timeline
-            </p>
-          </div>
-        </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-slate-950 py-12 text-xs text-slate-400">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold">
+              ⚡
+            </div>
+            <span className="font-bold text-white text-base">AutoLog</span>
+            <span>© {new Date().getFullYear()} AutoLog Inc. All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-policy" className="hover:text-sky-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/delete-account" className="hover:text-sky-400 transition-colors">
+              Delete Account
+            </Link>
+            <a href="mailto:support@autolog.app" className="hover:text-sky-400 transition-colors">
+              Support & Contact
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      {/* iOS Modal */}
+      <IosModal isOpen={isIosModalOpen} onClose={() => setIsIosModalOpen(false)} />
     </div>
   );
 }
