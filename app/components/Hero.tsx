@@ -86,11 +86,11 @@ export default function Hero({ onIosClick }: HeroProps) {
               {/* Dynamic status bar preview */}
               <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0f17] border border-white/10 aspect-[9/18]">
                 <Image
-                  src="/autolog-mockup.webp"
+                  src="/dashboard-1.webp"
                   alt="AutoLog Mobile App Interface"
                   width={400}
                   height={800}
-                  className="w-full h-full object-cover rounded-[2rem]"
+                  className="w-full h-full object-contain rounded-[2rem]"
                   priority
                 />
               </div>

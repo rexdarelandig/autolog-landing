@@ -1,181 +1,300 @@
 "use client";
 
-import { useState } from "react";
-import InteractiveScannerDemo from "./InteractiveScannerDemo";
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+
+interface ShowcaseSlide {
+  id: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  highlights: string[];
+  image: string;
+  alt: string;
+  color: string;
+  accentGlow: string;
+}
+
+const slides: ShowcaseSlide[] = [
+  {
+    id: "gps-tracking",
+    badge: "📍 Background GPS",
+    title: "Automated GPS Trip Tracker",
+    subtitle: "Zero-effort drive recording",
+    description:
+      "AutoLog automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required.",
+    highlights: [
+      "Auto start & stop detection",
+      "Categorize drives (Business vs. Personal)",
+      "IRAS & IRS compliant mileage tracking",
+    ],
+    image: "/gps-trips.webp",
+    alt: "AutoLog GPS Trip Tracking Interface",
+    color: "from-sky-500 to-cyan-400",
+    accentGlow: "rgba(56, 189, 248, 0.25)",
+  },
+  {
+    id: "fuel-logs",
+    badge: "⛽ Expense Manager",
+    title: "Fuel & Expense Analytics",
+    subtitle: "Track cost per mile in real-time",
+    description:
+      "Record every fuel fill-up, oil change, and maintenance cost. AutoLog calculates your precise fuel efficiency (MPG or L/100km) and monthly operating cost per kilometer.",
+    highlights: [
+      "Cost-per-mile & fuel efficiency graphs",
+      "Gas station location tracking",
+      "Support for all fuel types & electric EV",
+    ],
+    image: "/record-fuel.webp",
+    alt: "AutoLog Fuel Recording Interface",
+    color: "from-cyan-400 to-emerald-400",
+    accentGlow: "rgba(34, 211, 238, 0.25)",
+  },
+  {
+    id: "ai-scanner",
+    badge: "✨ AI Receipt OCR",
+    title: "Instant AI Receipt Reader",
+    subtitle: "Turn paper receipts into organized data",
+    description:
+      "Snap a quick picture of your paper gas receipt or pump screen. Our smart vision AI extracts total price, volume, fuel grade, date, and auto-matches it to your vehicle.",
+    highlights: [
+      "99.8% extraction accuracy",
+      "Extracts pump screen & paper invoices",
+      "Instant duplicate & error detection",
+    ],
+    image: "/receipt-1.webp",
+    alt: "AutoLog AI Receipt Scanning Interface",
+    color: "from-purple-400 to-sky-400",
+    accentGlow: "rgba(168, 85, 247, 0.25)",
+  },
+  {
+    id: "garage-fleet",
+    badge: "🚗 Multi-Vehicle Garage",
+    title: "Manage Up to 5 Vehicles",
+    subtitle: "Fleet & personal garage manager",
+    description:
+      "Switch effortlessly between daily commuters, work trucks, and family cars. Keep separate odometer logs, service histories, and fuel profiles for every vehicle.",
+    highlights: [
+      "1-tap vehicle profile switcher",
+      "Independent odometer & service tracking",
+      "Free 1 vehicle • Pro up to 5 vehicles",
+    ],
+    image: "/garage.webp",
+    alt: "AutoLog Garage Management Interface",
+    color: "from-amber-400 to-sky-400",
+    accentGlow: "rgba(251, 191, 36, 0.25)",
+  },
+  {
+    id: "live-cockpit",
+    badge: "📊 Command Center",
+    title: "Live Drive Cockpit & Alerts",
+    subtitle: "Real-time driving stats at a glance",
+    description:
+      "Stay informed with a dynamic dashboard highlighting active trip stats, monthly budget utilization, upcoming maintenance notifications, and quick-action shortcuts.",
+    highlights: [
+      "Live trip speed & odometer HUD",
+      "Proactive service reminder banners",
+      "Clean, distraction-free dark UI",
+    ],
+    image: "/dashboard-open.webp",
+    alt: "AutoLog Live Dashboard Interface",
+    color: "from-sky-400 to-blue-500",
+    accentGlow: "rgba(56, 189, 248, 0.25)",
+  },
+  {
+    id: "activity-reports",
+    badge: "📑 PDF & CSV Exports",
+    title: "Activity Logs & Tax Reports",
+    subtitle: "One-click expense documentation",
+    description:
+      "Filter your drive log history by date or vehicle and export official PDF vehicle reports or CSV spreadsheets ready for tax deductions and reimbursement.",
+    highlights: [
+      "Chronological trip & expense timeline",
+      "Filter by business vs. personal category",
+      "Export PDF summary & raw CSV data",
+    ],
+    image: "/quick-activity.webp",
+    alt: "AutoLog Activity Timeline Interface",
+    color: "from-teal-400 to-cyan-500",
+    accentGlow: "rgba(45, 212, 191, 0.25)",
+  },
+];
 
 export default function FeatureShowcase() {
-  const [activeVehicleIndex, setActiveVehicleIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const vehicles = [
-    { name: "Tesla Model Y", type: "Electric • Daily Drive", range: "310 mi", fill: "92%", color: "border-sky-500/50 bg-sky-500/10 text-sky-400" },
-    { name: "BMW X5 xDrive", type: "Gas • Executive", range: "480 mi", fill: "Fuel 85%", color: "border-cyan-500/50 bg-cyan-500/10 text-cyan-400" },
-    { name: "Ford F-150 SuperCrew", type: "Gas • Work Truck", range: "600 mi", fill: "Fuel 60%", color: "border-blue-500/50 bg-blue-500/10 text-blue-400" },
-    { name: "Honda Civic Sport", type: "Gas • Commuter", range: "420 mi", fill: "Fuel 95%", color: "border-purple-500/50 bg-purple-500/10 text-purple-400" },
-    { name: "Porsche 911 Carrera", type: "Gas • Weekend", range: "350 mi", fill: "Fuel 70%", color: "border-amber-500/50 bg-amber-500/10 text-amber-400" },
-  ];
+  const activeSlide = slides[currentIndex];
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
+
+  // Auto-advance carousel every 6s unless paused by user interaction
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, handleNext]);
 
   return (
-    <section id="features" className="py-20 relative">
+    <section id="features" className="py-20 relative overflow-hidden">
+      {/* Background ambient light blur */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sky-900/10 via-transparent to-transparent" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-sky-400 font-heading">
-            Engineered For Drivers & Fleet Owners
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1 text-xs font-semibold text-sky-400 font-heading">
+            📱 Interactive App Experience
+          </div>
+          <h2 className="text-3xl font-extrabold text-white sm:text-5xl font-heading">
+            Inside the <span className="gradient-text">AutoLog Mobile App</span>
           </h2>
-          <p className="text-3xl font-extrabold text-white sm:text-5xl font-heading">
-            Everything your vehicle needs in <span className="gradient-text">One Seamless App</span>
-          </p>
           <p className="text-base text-slate-300 sm:text-lg">
-            Say goodbye to lost paper receipts and manual spreadsheet logs. AutoLog handles trip recording, expense management, and vehicle health automatically.
+            Explore how AutoLog simplifies mileage tracking, fuel logging, and garage maintenance with an intuitive dark-themed mobile interface.
           </p>
         </div>
 
-        {/* Feature 1: AI Scanner Showcase Component */}
-        <div id="ai-scanner" className="pt-4">
-          <InteractiveScannerDemo />
+        {/* Feature Category Tabs */}
+        <div
+          className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 no-scrollbar scroll-smooth"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          {slides.map((slide, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <button
+                key={slide.id}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setIsAutoPlaying(false);
+                }}
+                className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold transition-all duration-200 shrink-0 font-heading ${isActive
+                    ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-lg shadow-sky-500/10 scale-105"
+                    : "bg-slate-900/80 text-slate-400 border border-white/10 hover:bg-slate-800 hover:text-slate-200"
+                  }`}
+              >
+                <span>{slide.badge.split(" ")[0]}</span>
+                <span>{slide.title.split(" ")[0]}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Card 1: GPS Trip Tracker */}
-          <div className="glass-card glass-card-interactive rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="h-12 w-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl">
-                📍
-              </div>
-              <h3 className="text-xl font-bold text-white font-heading">Automated GPS Trip Tracker</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                AutoLog detects when you start driving and auto-logs your start/end destinations, distance, and duration. Zero manual intervention required.
-              </p>
-            </div>
-            <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/80 p-3 text-xs text-slate-400 flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-sky-400 animate-ping" />
-                Background GPS Active
-              </span>
-            </div>
-          </div>
+        {/* Main Screenshot Carousel Showcase */}
+        <div
+          className="relative rounded-3xl border border-white/10 bg-slate-900/60 p-6 backdrop-blur-2xl md:p-10"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          {/* Dynamic Background Glow matching active slide */}
+          <div
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[120px] transition-all duration-700 -z-10"
+            style={{ backgroundColor: activeSlide.accentGlow }}
+          />
 
-          {/* Card 2: View Expenses & Financial Reports */}
-          <div className="glass-card glass-card-interactive rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="h-12 w-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
-                📊
-              </div>
-              <h3 className="text-xl font-bold text-white font-heading">Expense & Budget Analytics</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Categorize costs into Fuel, Maintenance, Tolls, Insurance, and Upgrades. Track cost per mile/km with intuitive interactive breakdown charts.
-              </p>
-            </div>
-            <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/80 p-3 text-xs">
-              <div className="flex justify-between text-slate-300 mb-1">
-                <span>Monthly Fuel & Service</span>
-                <span className="font-bold text-white font-heading">$387.90</span>
-              </div>
-              <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden flex">
-                <div className="bg-sky-400 h-full w-[65%]" />
-                <div className="bg-cyan-400 h-full w-[25%]" />
-                <div className="bg-blue-400 h-full w-[10%]" />
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3: Reminders for Upcoming Maintenance */}
-          <div className="glass-card glass-card-interactive rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="h-12 w-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl">
-                🔔
-              </div>
-              <h3 className="text-xl font-bold text-white font-heading">Smart Maintenance Reminders</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Receive proactive alerts for oil changes, tire rotations, registration renewals, and brake inspections based on mileage or calendar schedule.
-              </p>
-            </div>
-            <div className="mt-6 space-y-2">
-              <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-2.5 text-xs flex justify-between items-center text-amber-200">
-                <span>🛢️ Oil Change Due</span>
-                <span className="font-bold text-amber-400 font-heading">In 450 mi</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4: Export Data and Vehicle Reports */}
-          <div className="glass-card glass-card-interactive rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-            <div className="space-y-4">
-              <div className="h-12 w-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl">
-                📑
-              </div>
-              <h3 className="text-xl font-bold text-white font-heading">Export PDF & CSV Vehicle Reports</h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Generate mileage logs and official vehicle maintenance history PDF reports with a single tap.
-              </p>
-            </div>
-            <div className="mt-6 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3">
-              <span>PDF • CSV • Excel</span>
-            </div>
-          </div>
-
-          {/* Card 5 & 6 Span 2 columns: Multi-Vehicle Garage (1 Free vs 5 Pro) */}
-          <div className="glass-card rounded-3xl p-6 sm:p-8 md:col-span-2 flex flex-col justify-between border-sky-500/30 relative overflow-hidden">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="h-12 w-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl">
-                  🚗
-                </div>
-                <div className="flex gap-2">
-                  <span className="rounded-full bg-slate-800 border border-slate-700 px-3 py-1 text-xs text-slate-300">
-                    Free: 1 Vehicle
-                  </span>
-                  <span className="rounded-full bg-sky-500/20 border border-sky-500/40 px-3 py-1 text-xs font-bold text-sky-400 font-heading">
-                    Pro: Up to 5 Vehicles
-                  </span>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Column: Feature Description Card */}
+            <div className="lg:col-span-6 space-y-6 text-left order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-sky-300">
+                {activeSlide.badge}
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white font-heading">Garage Fleet Switcher</h3>
-                <p className="text-sm text-slate-300 mt-1">
-                  Manage your entire personal or family garage. Switch between up to 5 vehicles on Pro tier with dedicated odometer histories and fuel profiles.
+                <h3 className="text-2xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
+                  {activeSlide.title}
+                </h3>
+                <p className="text-sky-400 font-semibold text-sm mt-1 font-heading">
+                  {activeSlide.subtitle}
                 </p>
               </div>
 
-              {/* Interactive Garage Switcher */}
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-2">
-                {vehicles.map((v, index) => (
-                  <button
-                    key={v.name}
-                    onClick={() => setActiveVehicleIndex(index)}
-                    className={`rounded-xl border p-3 text-left transition-all ${activeVehicleIndex === index
-                      ? v.color + " ring-2 ring-sky-400/30 shadow-lg"
-                      : "border-white/10 bg-slate-900/60 text-slate-400 hover:bg-slate-800"
-                      }`}
-                  >
-                    <p className="text-xs font-bold truncate font-heading">{v.name}</p>
-                    <p className="text-[10px] opacity-80 mt-1 font-heading">{v.range}</p>
-                  </button>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                {activeSlide.description}
+              </p>
+
+              {/* Key Highlight Bullets */}
+              <div className="space-y-3 pt-2 border-t border-white/10">
+                {activeSlide.highlights.map((highlight, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-slate-200">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs shrink-0">
+                      ✓
+                    </div>
+                    <span>{highlight}</span>
+                  </div>
                 ))}
               </div>
 
-              {/* Selected Vehicle Card */}
-              <div className="rounded-2xl border border-white/10 bg-slate-900/90 p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h4 className="text-lg font-bold text-white font-heading">{vehicles[activeVehicleIndex].name}</h4>
-                    <span className="rounded bg-sky-500/20 px-2 py-0.5 text-[10px] font-semibold text-sky-300 font-heading">
-                      Vehicle #{activeVehicleIndex + 1}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-400 mt-0.5">{vehicles[activeVehicleIndex].type}</p>
+              {/* Navigation Controls */}
+              <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handlePrev}
+                    aria-label="Previous screenshot"
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-white transition-all hover:bg-white/15 active:scale-95"
+                  >
+                    ←
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    aria-label="Next screenshot"
+                    className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-white transition-all hover:bg-white/15 active:scale-95"
+                  >
+                    →
+                  </button>
+                  <span className="text-xs text-slate-400 ml-2 font-mono">
+                    0{currentIndex + 1} / 0{slides.length}
+                  </span>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs">
-                  <div>
-                    <span className="text-slate-400 block">Est Range</span>
-                    <span className="text-white font-bold font-heading">{vehicles[activeVehicleIndex].range}</span>
+                {/* Progress Indicators */}
+                <div className="flex items-center gap-1.5">
+                  {slides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentIndex(idx)}
+                      className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
+                          ? "w-8 bg-sky-400"
+                          : "w-2 bg-slate-700 hover:bg-slate-500"
+                        }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Smartphone Mockup Frame holding Active Screenshot */}
+            <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px]">
+                {/* Phone Glass Shadow & Frame */}
+                <div className="relative rounded-[2.5rem] border-[6px] border-slate-800 bg-slate-950 p-2 shadow-2xl shadow-sky-950/50 ring-1 ring-white/10">
+                  {/* Speaker / Pill notch mockup */}
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 h-4 w-24 rounded-full bg-slate-900 border border-slate-800/80 z-20 flex items-center justify-center">
+                    <div className="h-1.5 w-1.5 rounded-full bg-slate-950 mr-2" />
+                    <div className="h-1 w-8 rounded-full bg-slate-800" />
                   </div>
-                  <div>
-                    <span className="text-slate-400 block">Fuel Level</span>
-                    <span className="text-sky-400 font-bold font-heading">{vehicles[activeVehicleIndex].fill}</span>
+
+                  {/* Image Display */}
+                  <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 aspect-[9/18]">
+                    <Image
+                      key={activeSlide.id}
+                      src={activeSlide.image}
+                      alt={activeSlide.alt}
+                      width={360}
+                      height={720}
+                      className="w-full h-full object-contain transition-opacity duration-300 rounded-[2rem]"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
@@ -186,3 +305,4 @@ export default function FeatureShowcase() {
     </section>
   );
 }
+
