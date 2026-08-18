@@ -26,8 +26,6 @@ const slides: ShowcaseSlide[] = [
       "AutoLog automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required.",
     highlights: [
       "Auto start & stop detection",
-      "Categorize drives (Business vs. Personal)",
-      "IRAS & IRS compliant mileage tracking",
     ],
     image: "/gps-trips.webp",
     alt: "AutoLog GPS Trip Tracking Interface",
@@ -46,7 +44,7 @@ const slides: ShowcaseSlide[] = [
       "Gas station location tracking",
       "Support for all fuel types & electric EV",
     ],
-    image: "/record-fuel.webp",
+    image: "/dashboard-2.webp",
     alt: "AutoLog Fuel Recording Interface",
     color: "from-cyan-400 to-emerald-400",
     accentGlow: "rgba(34, 211, 238, 0.25)",
@@ -97,7 +95,7 @@ const slides: ShowcaseSlide[] = [
       "Proactive service reminder banners",
       "Clean, distraction-free dark UI",
     ],
-    image: "/dashboard-open.webp",
+    image: "/live-drive.webp",
     alt: "AutoLog Live Dashboard Interface",
     color: "from-sky-400 to-blue-500",
     accentGlow: "rgba(56, 189, 248, 0.25)",
@@ -105,7 +103,7 @@ const slides: ShowcaseSlide[] = [
   {
     id: "activity-reports",
     badge: "📑 PDF & CSV Exports",
-    title: "Activity Logs & Tax Reports",
+    title: "Activity Logs & Reports",
     subtitle: "One-click expense documentation",
     description:
       "Filter your drive log history by date or vehicle and export official PDF vehicle reports or CSV spreadsheets ready for tax deductions and reimbursement.",
@@ -114,7 +112,7 @@ const slides: ShowcaseSlide[] = [
       "Filter by business vs. personal category",
       "Export PDF summary & raw CSV data",
     ],
-    image: "/quick-activity.webp",
+    image: "/export-reports.webp",
     alt: "AutoLog Activity Timeline Interface",
     color: "from-teal-400 to-cyan-500",
     accentGlow: "rgba(45, 212, 191, 0.25)",
@@ -179,8 +177,8 @@ export default function FeatureShowcase() {
                   setIsAutoPlaying(false);
                 }}
                 className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold transition-all duration-200 shrink-0 font-heading ${isActive
-                    ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-lg shadow-sky-500/10 scale-105"
-                    : "bg-slate-900/80 text-slate-400 border border-white/10 hover:bg-slate-800 hover:text-slate-200"
+                  ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-lg shadow-sky-500/10 scale-105"
+                  : "bg-slate-900/80 text-slate-400 border border-white/10 hover:bg-slate-800 hover:text-slate-200"
                   }`}
               >
                 <span>{slide.badge.split(" ")[0]}</span>
@@ -263,8 +261,8 @@ export default function FeatureShowcase() {
                       key={idx}
                       onClick={() => setCurrentIndex(idx)}
                       className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                          ? "w-8 bg-sky-400"
-                          : "w-2 bg-slate-700 hover:bg-slate-500"
+                        ? "w-8 bg-sky-400"
+                        : "w-2 bg-slate-700 hover:bg-slate-500"
                         }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
