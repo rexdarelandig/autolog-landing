@@ -37,9 +37,8 @@ export default function Pricing({ onIosClick }: PricingProps) {
               className="relative h-8 w-16 rounded-full bg-slate-800 p-1 border border-white/10 transition-colors"
             >
               <div
-                className={`h-6 w-6 rounded-full bg-gradient-to-r from-sky-400 to-cyan-400 shadow-md transform transition-transform ${
-                  billingCycle === "annual" ? "translate-x-8" : "translate-x-0"
-                }`}
+                className={`h-6 w-6 rounded-full bg-gradient-to-r from-sky-400 to-cyan-400 shadow-md transform transition-transform ${billingCycle === "annual" ? "translate-x-8" : "translate-x-0"
+                  }`}
               />
             </button>
             <span className={`text-sm font-semibold flex items-center gap-1.5 ${billingCycle === "annual" ? "text-white" : "text-slate-400"}`}>
@@ -88,13 +87,17 @@ export default function Pricing({ onIosClick }: PricingProps) {
                     <span className="text-sky-400 font-bold">✓</span>
                     <span>Standard Maintenance Reminders</span>
                   </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-sky-400 font-bold">✓</span>
+                    <span>PDF/CSV Export Reports</span>
+                  </li>
                   <li className="flex items-center gap-3 text-slate-500">
                     <span>✕</span>
                     <span className="line-through">AI Gas Receipt & Pump Scanner</span>
                   </li>
                   <li className="flex items-center gap-3 text-slate-500">
                     <span>✕</span>
-                    <span className="line-through">PDF/CSV Export Reports</span>
+                    <span className="line-through">Cloud Sync & Backup</span>
                   </li>
                 </ul>
               </div>
@@ -149,11 +152,15 @@ export default function Pricing({ onIosClick }: PricingProps) {
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-sky-400 font-bold">✓</span>
-                    <span><strong className="text-white">AI Scanner</strong> for Gas Receipts & Pump Displays</span>
+                    <span><strong className="text-white">20x per Day AI Scanner</strong> for Gas Receipts & Pump Displays</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-sky-400 font-bold">✓</span>
-                    <span>Automatic Vehicle Recognition for Auto Fill</span>
+                    <span><strong className="text-white">10x per Day</strong> Automatic Vehicle Recognition for Auto Fill</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-sky-400 font-bold">✓</span>
+                    <span><strong className="text-white">24/7</strong> Cloud Sync & Backup</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-sky-400 font-bold">✓</span>

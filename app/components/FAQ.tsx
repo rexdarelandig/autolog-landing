@@ -20,7 +20,7 @@ export default function FAQ() {
     },
     {
       q: "Can I export my mileage and vehicle maintenance reports?",
-      a: "Yes! Pro users can generate official IRS-compliant mileage CSV/PDF logs as well as complete vehicle maintenance history reports for tax filing or resale documentation."
+      a: "Yes! Pro users can generate official mileage CSV/PDF logs as well as complete vehicle maintenance history reports."
     },
     {
       q: "When is the iOS (Apple App Store) version launching?",

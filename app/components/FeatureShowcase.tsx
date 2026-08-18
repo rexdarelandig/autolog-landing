@@ -53,7 +53,6 @@ export default function FeatureShowcase() {
                 <span className="h-2 w-2 rounded-full bg-sky-400 animate-ping" />
                 Background GPS Active
               </span>
-              <span className="text-sky-400 font-heading font-bold">$12.50 saved</span>
             </div>
           </div>
 
@@ -108,12 +107,11 @@ export default function FeatureShowcase() {
               </div>
               <h3 className="text-xl font-bold text-white font-heading">Export PDF & CSV Vehicle Reports</h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Generate IRS-ready mileage logs and official vehicle maintenance history PDF reports with a single tap for tax deductions or resale value.
+                Generate mileage logs and official vehicle maintenance history PDF reports with a single tap.
               </p>
             </div>
             <div className="mt-6 flex items-center justify-between text-xs text-slate-400 border-t border-white/10 pt-3">
               <span>PDF • CSV • Excel</span>
-              <span className="text-purple-400 font-semibold cursor-pointer hover:underline">Preview Report →</span>
             </div>
           </div>
 
@@ -147,11 +145,10 @@ export default function FeatureShowcase() {
                   <button
                     key={v.name}
                     onClick={() => setActiveVehicleIndex(index)}
-                    className={`rounded-xl border p-3 text-left transition-all ${
-                      activeVehicleIndex === index
-                        ? v.color + " ring-2 ring-sky-400/30 shadow-lg"
-                        : "border-white/10 bg-slate-900/60 text-slate-400 hover:bg-slate-800"
-                    }`}
+                    className={`rounded-xl border p-3 text-left transition-all ${activeVehicleIndex === index
+                      ? v.color + " ring-2 ring-sky-400/30 shadow-lg"
+                      : "border-white/10 bg-slate-900/60 text-slate-400 hover:bg-slate-800"
+                      }`}
                   >
                     <p className="text-xs font-bold truncate font-heading">{v.name}</p>
                     <p className="text-[10px] opacity-80 mt-1 font-heading">{v.range}</p>

@@ -16,7 +16,7 @@ export default function Navbar({ onIosClick }: NavbarProps) {
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-            ⚡
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-gauge-icon lucide-gauge text-slate-950"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold font-heading tracking-tight text-white flex items-center gap-1.5">
