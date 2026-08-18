@@ -22,9 +22,8 @@ export default function Hero({ onIosClick }: HeroProps) {
               <span>Next-Gen Mileage & Expense Manager</span>
             </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-6xl leading-[1.1]">
-              Log Every Mile & Fuel Receipt <br className="hidden sm:inline" />
-              <span className="gradient-text">Without Raising a Finger</span>
+            <h1 className="text-4xl font-extrabold tracking-tight gradient-text sm:text-6xl lg:text-6xl leading-[1.1]">
+              Log Every Mile & Vehicle Expenses
             </h1>
 
             <p className="max-w-2xl text-lg text-slate-300 sm:text-xl font-normal leading-relaxed mx-auto lg:mx-0">
@@ -78,7 +77,7 @@ export default function Hero({ onIosClick }: HeroProps) {
           </div>
 
           {/* Right Column: App Graphic & Interactive Preview */}
-          <div className="lg:col-span-5 relative hidden items-center justify-center">
+          <div className="lg:col-span-5 relative items-center justify-center">
             {/* Glow backing */}
             <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/20 to-cyan-500/20 rounded-3xl blur-2xl transform rotate-6 scale-95" />
 
@@ -87,37 +86,13 @@ export default function Hero({ onIosClick }: HeroProps) {
               {/* Dynamic status bar preview */}
               <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0f17] border border-white/10 aspect-[9/18]">
                 <Image
-                  src="/app-mockup.png"
+                  src="/autolog-mockup.webp"
                   alt="AutoLog Mobile App Interface"
                   width={400}
                   height={800}
                   className="w-full h-full object-cover rounded-[2rem]"
                   priority
                 />
-
-                {/* Floating AI Badge Overlay */}
-                <div className="absolute top-4 left-4 right-4 rounded-xl border border-sky-500/40 bg-slate-950/80 p-3 backdrop-blur-md flex items-center justify-between shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <span className="flex h-3 w-3 items-center justify-center rounded-full bg-sky-400 text-[8px] font-bold text-slate-950">✓</span>
-                    <div>
-                      <p className="text-xs font-semibold text-white">AI Scanner Active</p>
-                      <p className="text-[10px] text-slate-400">Receipt parsed: Shell $65.45 (14.1 gal)</p>
-                    </div>
-                  </div>
-                  <span className="rounded bg-sky-500/20 px-2 py-0.5 text-[10px] font-bold text-sky-300">Auto-Logged</span>
-                </div>
-
-                {/* Floating GPS Badge Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-cyan-500/40 bg-slate-950/85 p-3 backdrop-blur-md flex items-center justify-between shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-3 w-3 rounded-full bg-cyan-400 animate-ping" />
-                    <div>
-                      <p className="text-xs font-semibold text-white">GPS Trip Recorded</p>
-                      <p className="text-[10px] text-slate-400">Tesla Model Y • 48.3 mi • 45 mins</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-semibold text-cyan-300">+$12.50 saved</span>
-                </div>
               </div>
             </div>
           </div>

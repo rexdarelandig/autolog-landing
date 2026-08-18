@@ -19,8 +19,8 @@ export default function Navbar({ onIosClick }: NavbarProps) {
             ⚡
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1.5">
-              AutoLog <span className="rounded-full bg-sky-500/10 border border-sky-500/30 px-2 py-0.5 text-[10px] font-semibold text-sky-400 uppercase tracking-widest">Pro AI</span>
+            <span className="text-xl font-bold font-heading tracking-tight text-white flex items-center gap-1.5">
+              AUTOLOG <span className="rounded-full bg-sky-500/10 border border-sky-500/30 px-2 py-0.5 text-[10px] font-semibold text-sky-400 uppercase tracking-widest">Pro AI</span>
             </span>
             <span className="text-xs text-slate-400">Vehicle & Gas Tracker</span>
           </div>
@@ -37,9 +37,6 @@ export default function Navbar({ onIosClick }: NavbarProps) {
           </a>
           <a href="#pricing" className="transition hover:text-sky-400">
             Pricing
-          </a>
-          <a href="#calculator" className="transition hover:text-sky-400">
-            Gas Calculator
           </a>
           <a href="#faq" className="transition hover:text-sky-400">
             FAQ
