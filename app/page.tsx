@@ -5,10 +5,10 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import FeatureShowcase from "./components/FeatureShowcase";
 import Pricing from "./components/Pricing";
-import Calculator from "./components/Calculator";
 import FAQ from "./components/FAQ";
 import IosModal from "./components/IosModal";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const [isIosModalOpen, setIsIosModalOpen] = useState(false);
@@ -64,9 +64,7 @@ export default function Home() {
       <footer className="border-t border-white/10 bg-slate-950 py-12 text-xs text-slate-400">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-gauge-icon lucide-gauge text-slate-950"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
-            </div>
+            <Image src="/logo.png" width={30} height={30} alt="Logo" />
             <span className="font-bold text-white text-base">milepup</span>
             <span>© {new Date().getFullYear()} milepup Inc. All rights reserved.</span>
           </div>

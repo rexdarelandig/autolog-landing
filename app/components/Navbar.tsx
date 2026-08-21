@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavbarProps {
   onIosClick: () => void;
@@ -15,9 +16,7 @@ export default function Navbar({ onIosClick }: NavbarProps) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold text-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-gauge-icon lucide-gauge text-slate-950"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
-          </div>
+          <Image src="/logo.png" width={30} height={30} alt="Logo" />
           <div className="flex flex-col">
             <span className="text-xl font-bold font-heading tracking-tight text-white flex items-center gap-1.5">
               milepup <span className="rounded-full bg-sky-500/10 border border-sky-500/30 px-2 py-0.5 text-[10px] font-semibold text-sky-400 uppercase tracking-widest">Pro AI</span>
