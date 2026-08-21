@@ -8,7 +8,7 @@ export default function FAQ() {
   const faqs = [
     {
       q: "How does the AI Gas Receipt Scanner work?",
-      a: "With AutoLog Pro, simply open the scanner camera and snap a photo of any paper gas receipt or pump screen. Our AI parses station name, gallons/liters, price per gallon, total cost, and automatically assigns the fill-up to the selected vehicle."
+      a: "With milepup Pro, simply open the scanner camera and snap a photo of any paper gas receipt or pump screen. Our AI parses station name, gallons/liters, price per gallon, total cost, and automatically assigns the fill-up to the selected vehicle."
     },
     {
       q: "What is the difference between the Free tier and Pro tier?",
@@ -16,7 +16,7 @@ export default function FAQ() {
     },
     {
       q: "Does automatic GPS trip tracking drain my phone battery?",
-      a: "No! AutoLog uses ultra-low-power accelerometer algorithms to detect vehicle motion before enabling active GPS, ensuring minimal background battery consumption."
+      a: "No! milepup uses ultra-low-power accelerometer algorithms to detect vehicle motion before enabling active GPS, ensuring minimal background battery consumption."
     },
     {
       q: "Can I export my mileage and vehicle maintenance reports?",
@@ -24,7 +24,7 @@ export default function FAQ() {
     },
     {
       q: "When is the iOS (Apple App Store) version launching?",
-      a: "AutoLog for Android is available now on Google Play! The iOS version is currently in closed beta and launching on the App Store soon. You can join the early access waitlist above."
+      a: "milepup for Android is available now on Google Play! The iOS version is currently in closed beta and launching on the App Store soon. You can join the early access waitlist above."
     }
   ];
 

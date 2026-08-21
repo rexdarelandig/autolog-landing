@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Outfit, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -21,11 +21,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AutoLog | Smart Vehicle & Gas Mileage Tracker",
+  title: "milepup | Smart Vehicle & Gas Mileage Tracker",
   description:
-    "AutoLog automatically logs trips, scans gas receipts with AI, tracks maintenance, and manages expenses for up to 5 vehicles with Pro tier.",
+    "milepup automatically logs trips, scans gas receipts with AI, tracks maintenance, and manages expenses for up to 5 vehicles with Pro tier.",
   keywords: [
-    "AutoLog",
+    "milepup",
     "Gas Tracker",
     "Trip Tracker",
     "Mileage Log",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Car Maintenance Reminders",
   ],
   openGraph: {
-    title: "AutoLog: Vehicle and Gas Tracker",
+    title: "milepup: Vehicle and Gas Tracker",
     description:
       "AI Scanner for gas receipts, GPS trip tracker, service reminders, and multi-vehicle expense management.",
     images: ["/app-mockup.png"],
@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} h-full antialiased dark`}
+      className={`${outfit.variable} ${dmSans.variable} ${ibmPlexMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-[#0b0f17] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300">
         {children}

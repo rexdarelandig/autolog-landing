@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AutoLog | Delete Account",
-  description: "Request deletion of your AutoLog account and associated data.",
+  title: "milepup | Delete Account",
+  description: "Request deletion of your milepup account and associated data.",
 };
 
 export default function DeleteAccountPage() {
@@ -19,7 +19,7 @@ export default function DeleteAccountPage() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
             ⚡
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">AutoLog</span>
+          <span className="text-xl font-bold tracking-tight text-white">milepup</span>
         </Link>
         <Link
           href="/"
@@ -39,7 +39,7 @@ export default function DeleteAccountPage() {
         </h1>
 
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
-          Use this form to request deletion of your AutoLog account and associated cloud data. Once submitted, our team will review and process your request.
+          Use this form to request deletion of your milepup account and associated cloud data. Once submitted, our team will review and process your request.
         </p>
 
         <div className="mt-6 rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4 sm:p-5">
@@ -123,7 +123,7 @@ export default function DeleteAccountPage() {
         </form>
 
         <div className="mt-8 border-t border-white/10 pt-6 flex items-center justify-between text-xs text-slate-400">
-          <span>AutoLog Privacy & Data Protection</span>
+          <span>milepup Privacy & Data Protection</span>
           <Link
             href="/"
             className="font-semibold text-sky-400 hover:text-sky-300 transition-colors"

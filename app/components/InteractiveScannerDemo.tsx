@@ -42,7 +42,7 @@ export default function InteractiveScannerDemo() {
           </div>
           <h3 className="text-2xl font-bold text-white mt-2">AI Receipt & Pump Recognition</h3>
           <p className="text-sm text-slate-400 mt-1">
-            Snap a photo of any gas receipt or pump display. AutoLog instantly parses fuel volume, total cost, and assigns it to your vehicle.
+            Snap a photo of any gas receipt or pump display. milepup instantly parses fuel volume, total cost, and assigns it to your vehicle.
           </p>
         </div>
 

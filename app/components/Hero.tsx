@@ -27,7 +27,7 @@ export default function Hero({ onIosClick }: HeroProps) {
             </h1>
 
             <p className="max-w-2xl text-lg text-slate-300 sm:text-xl font-normal leading-relaxed mx-auto lg:mx-0">
-              AutoLog uses background GPS and AI scan technology to automatically capture your trips, parse fuel receipts, parse gas pump display, track vehicle expenses, and send timely service alerts.
+              milepup uses background GPS and AI scan technology to automatically capture your trips, parse fuel receipts, parse gas pump display, track vehicle expenses, and send timely service alerts.
             </p>
 
             {/* CTA Buttons */}
@@ -87,7 +87,7 @@ export default function Hero({ onIosClick }: HeroProps) {
               <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0f17] border border-white/10 aspect-[9/18]">
                 <Image
                   src="/dashboard-1.webp"
-                  alt="AutoLog Mobile App Interface"
+                  alt="milepup Mobile App Interface"
                   width={400}
                   height={800}
                   className="w-full h-full object-contain rounded-[2rem]"

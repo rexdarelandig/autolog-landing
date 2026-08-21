@@ -23,12 +23,12 @@ const slides: ShowcaseSlide[] = [
     title: "Automated GPS Trip Tracker",
     subtitle: "Zero-effort drive recording",
     description:
-      "AutoLog automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required.",
+      "milepup automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required.",
     highlights: [
       "Auto start & stop detection",
     ],
     image: "/gps-trips.webp",
-    alt: "AutoLog GPS Trip Tracking Interface",
+    alt: "milepup GPS Trip Tracking Interface",
     color: "from-sky-500 to-cyan-400",
     accentGlow: "rgba(56, 189, 248, 0.25)",
   },
@@ -38,14 +38,14 @@ const slides: ShowcaseSlide[] = [
     title: "Fuel & Expense Analytics",
     subtitle: "Track cost per mile in real-time",
     description:
-      "Record every fuel fill-up, oil change, and maintenance cost. AutoLog calculates your precise fuel efficiency (MPG or L/100km) and monthly operating cost per kilometer.",
+      "Record every fuel fill-up, oil change, and maintenance cost. milepup calculates your precise fuel efficiency (MPG or L/100km) and monthly operating cost per kilometer.",
     highlights: [
       "Cost-per-mile & fuel efficiency graphs",
       "Gas station location tracking",
       "Support for all fuel types & electric EV",
     ],
     image: "/dashboard-2.webp",
-    alt: "AutoLog Fuel Recording Interface",
+    alt: "milepup Fuel Recording Interface",
     color: "from-cyan-400 to-emerald-400",
     accentGlow: "rgba(34, 211, 238, 0.25)",
   },
@@ -62,7 +62,7 @@ const slides: ShowcaseSlide[] = [
       "Instant duplicate & error detection",
     ],
     image: "/receipt-1.webp",
-    alt: "AutoLog AI Receipt Scanning Interface",
+    alt: "milepup AI Receipt Scanning Interface",
     color: "from-purple-400 to-sky-400",
     accentGlow: "rgba(168, 85, 247, 0.25)",
   },
@@ -79,7 +79,7 @@ const slides: ShowcaseSlide[] = [
       "Free 1 vehicle • Pro up to 5 vehicles",
     ],
     image: "/garage.webp",
-    alt: "AutoLog Garage Management Interface",
+    alt: "milepup Garage Management Interface",
     color: "from-amber-400 to-sky-400",
     accentGlow: "rgba(251, 191, 36, 0.25)",
   },
@@ -96,7 +96,7 @@ const slides: ShowcaseSlide[] = [
       "Clean, distraction-free dark UI",
     ],
     image: "/live-drive.webp",
-    alt: "AutoLog Live Dashboard Interface",
+    alt: "milepup Live Dashboard Interface",
     color: "from-sky-400 to-blue-500",
     accentGlow: "rgba(56, 189, 248, 0.25)",
   },
@@ -113,7 +113,7 @@ const slides: ShowcaseSlide[] = [
       "Export PDF summary & raw CSV data",
     ],
     image: "/export-reports.webp",
-    alt: "AutoLog Activity Timeline Interface",
+    alt: "milepup Activity Timeline Interface",
     color: "from-teal-400 to-cyan-500",
     accentGlow: "rgba(45, 212, 191, 0.25)",
   },
@@ -154,10 +154,10 @@ export default function FeatureShowcase() {
             📱 Interactive App Experience
           </div>
           <h2 className="text-3xl font-extrabold text-white sm:text-5xl font-heading">
-            Inside the <span className="gradient-text">AutoLog Mobile App</span>
+            Inside the <span className="gradient-text">milepup Mobile App</span>
           </h2>
           <p className="text-base text-slate-300 sm:text-lg">
-            Explore how AutoLog simplifies mileage tracking, fuel logging, and garage maintenance with an intuitive dark-themed mobile interface.
+            Explore how milepup simplifies mileage tracking, fuel logging, and garage maintenance with an intuitive dark-themed mobile interface.
           </p>
         </div>
 

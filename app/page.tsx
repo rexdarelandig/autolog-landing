@@ -67,8 +67,8 @@ export default function Home() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-gauge-icon lucide-gauge text-slate-950"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
             </div>
-            <span className="font-bold text-white text-base">AutoLog</span>
-            <span>© {new Date().getFullYear()} AutoLog Inc. All rights reserved.</span>
+            <span className="font-bold text-white text-base">milepup</span>
+            <span>© {new Date().getFullYear()} milepup Inc. All rights reserved.</span>
           </div>
 
           <div className="flex items-center gap-6">
@@ -78,7 +78,7 @@ export default function Home() {
             <Link href="/delete-account" className="hover:text-sky-400 transition-colors">
               Delete Account
             </Link>
-            <a href="mailto:support@autolog.app" className="hover:text-sky-400 transition-colors">
+            <a href="mailto:support@milepup.app" className="hover:text-sky-400 transition-colors">
               Support & Contact
             </a>
           </div>

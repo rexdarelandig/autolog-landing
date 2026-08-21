@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AutoLog | Privacy Policy",
+  title: "milepup | Privacy Policy",
   description:
-    "Privacy Policy for AutoLog: Vehicle & Gas Tracker by Rex Darel Andig.",
+    "Privacy Policy for milepup: Vehicle & Gas Tracker by Rex Darel Andig.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-cyan-500 text-slate-950 font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
             ⚡
           </div>
-          <span className="text-xl font-bold tracking-tight text-white">AutoLog</span>
+          <span className="text-xl font-bold tracking-tight text-white">milepup</span>
         </Link>
         <Link
           href="/"
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="mt-2 text-lg text-sky-300 font-semibold">
-            AutoLog: Vehicle & Gas Tracker
+            milepup: Vehicle & Gas Tracker
           </p>
           <div className="mt-6 flex flex-col gap-2 text-xs text-slate-400 sm:flex-row sm:flex-wrap sm:gap-6 pt-4 border-t border-white/10">
             <span>Developer: Rex Darel Andig</span>
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
               This Privacy Policy describes how Rex Darel Andig (&quot;Developer,&quot;
               &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, stores,
               and protects your information when you use the mobile
-              application <strong className="text-white">AutoLog: Vehicle & Gas Tracker</strong> (the
+              application <strong className="text-white">milepup: Vehicle & Gas Tracker</strong> (the
               &quot;Application&quot; or &quot;App&quot;).
             </p>
 
@@ -134,8 +134,8 @@ export default function PrivacyPolicyPage() {
                   <li>
                     <strong className="text-white">Gas & Maintenance Receipt Photos:</strong> All
                     receipt photos remain <strong className="text-amber-300">strictly stored on your local
-                    device only</strong> and are <strong className="text-amber-300">never uploaded to the
-                    cloud</strong> (even for PRO users).
+                      device only</strong> and are <strong className="text-amber-300">never uploaded to the
+                        cloud</strong> (even for PRO users).
                   </li>
                   <li>
                     <strong className="text-white">Vehicle Avatar Profile Photos:</strong> Vehicle
@@ -232,7 +232,7 @@ export default function PrivacyPolicyPage() {
                 </div>
               </div>
               <p className="italic text-xs text-sky-400">
-                Note: AutoLog is completely <strong className="text-white font-semibold">ad-free</strong>.
+                Note: milepup is completely <strong className="text-white font-semibold">ad-free</strong>.
               </p>
             </section>
 

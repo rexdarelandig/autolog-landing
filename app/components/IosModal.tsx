@@ -41,9 +41,9 @@ export default function IosModal({ isOpen, onClose }: IosModalProps) {
               <span className="rounded-full bg-sky-500/20 px-3 py-1 text-xs font-bold text-sky-400 border border-sky-500/30">
                 Coming Soon on iOS
               </span>
-              <h3 className="text-2xl font-bold text-white mt-2">AutoLog for iPhone & iPad</h3>
+              <h3 className="text-2xl font-bold text-white mt-2">milepup for iPhone & iPad</h3>
               <p className="text-sm text-slate-300 mt-1">
-                The iOS version of AutoLog is currently in final Beta testing on TestFlight. Be the first to get notified when it hits the App Store!
+                The iOS version of milepup is currently in final Beta testing on TestFlight. Be the first to get notified when it hits the App Store!
               </p>
             </div>
 

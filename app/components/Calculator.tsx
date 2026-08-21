@@ -25,7 +25,7 @@ export default function Calculator() {
                 </span>
                 <h3 className="text-3xl font-bold text-white mt-1">Calculate Your Gas & Tax Savings</h3>
                 <p className="text-sm text-slate-300 mt-2">
-                  See how much money you spend on fuel and potential IRS tax write-offs AutoLog can track for you.
+                  See how much money you spend on fuel and potential IRS tax write-offs milepup can track for you.
                 </p>
               </div>
 
@@ -118,7 +118,7 @@ export default function Calculator() {
                   ${taxDeductionsEst.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </p>
                 <p className="text-xs text-slate-300">
-                  By auto-logging every business trip with AutoLog, you can claim significant mileage write-offs effortlessly.
+                  By auto-logging every business trip with milepup, you can claim significant mileage write-offs effortlessly.
                 </p>
               </div>
             </div>
