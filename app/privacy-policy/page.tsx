@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "milepup | Privacy Policy",
   description:
-    "Privacy Policy for milepup: Vehicle & Gas Tracker by Rex Darel Andig.",
+    "Privacy Policy for milepup: Mileage & Expense Tracker by Rex Darel Andig.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p className="mt-2 text-lg text-sky-300 font-semibold">
-            milepup: Vehicle & Gas Tracker
+            milepup: Mileage & Expense Tracker
           </p>
           <div className="mt-6 flex flex-col gap-2 text-xs text-slate-400 sm:flex-row sm:flex-wrap sm:gap-6 pt-4 border-t border-white/10">
             <span>Developer: Rex Darel Andig</span>
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
               This Privacy Policy describes how Rex Darel Andig (&quot;Developer,&quot;
               &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, stores,
               and protects your information when you use the mobile
-              application <strong className="text-white">milepup: Vehicle & Gas Tracker</strong> (the
+              application <strong className="text-white">milepup: Mileage & Expense Tracker</strong> (the
               &quot;Application&quot; or &quot;App&quot;).
             </p>
 
