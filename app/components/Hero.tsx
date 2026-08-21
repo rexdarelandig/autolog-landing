@@ -86,7 +86,7 @@ export default function Hero({ onIosClick }: HeroProps) {
               {/* Dynamic status bar preview */}
               <div className="relative overflow-hidden rounded-[2rem] bg-[#0b0f17] border border-white/10 aspect-[9/18]">
                 <Image
-                  src="/dashboard-1.webp"
+                  src="/dashboard.webp"
                   alt="milepup Mobile App Interface"
                   width={400}
                   height={800}

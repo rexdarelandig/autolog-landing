@@ -20,14 +20,14 @@ const slides: ShowcaseSlide[] = [
   {
     id: "gps-tracking",
     badge: "📍 Background GPS",
-    title: "Automated GPS Trip Tracker",
+    title: "milepup Trip Tracker",
     subtitle: "Zero-effort drive recording",
     description:
-      "milepup automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required.",
+      "Click the button and automatically senses when you start driving and logs your start/end destinations, exact distance, route map, and duration with zero manual intervention required. Share your trip to your friends!",
     highlights: [
       "Auto start & stop detection",
     ],
-    image: "/gps-trips.webp",
+    image: "/vehicle-report.webp",
     alt: "milepup GPS Trip Tracking Interface",
     color: "from-sky-500 to-cyan-400",
     accentGlow: "rgba(56, 189, 248, 0.25)",
